@@ -13,5 +13,7 @@ export class ProductsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.products$ = this.data.getProducts();
+
+    this.products$.subscribe((x) => console.log(x));
   }
 }
