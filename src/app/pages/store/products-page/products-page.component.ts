@@ -7,7 +7,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './products-page.component.html',
 })
 export class ProductsPageComponent implements OnInit {
-  public products$!: Observable<any[]>;
+  public products$: Observable<any[]>;
   constructor(private data: DataService) {}
 
   ngOnInit(): void {
