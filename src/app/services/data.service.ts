@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 
@@ -10,11 +10,23 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
+  public conposeHeaders() {
+    const token = localStorage.getItem('petshop.token');
+    const headers = new HttpHeaders().set('Authorization', `bearer ${token}`);
+    return headers;
+  }
+
   getProducts() {
     return this.http.get<Product[]>(`${this.url}/products`);
   }
 
   authenticate(data) {
     return this.http.post(`${this.url}/accounts/authenticate`, data);
+  }
+
+  refreshToken() {
+    return this.http.post(`${this.url}/accounts/refresh-token`, null, {
+      headers: this.conposeHeaders(),
+    });
   }
 }
