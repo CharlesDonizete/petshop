@@ -1,3 +1,4 @@
+import { MaskDirective } from './directives/mask.directive';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,6 +29,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     FramePageComponent,
     ProductCardComponent,
     LoadingComponent,
+    MaskDirective,
   ],
   imports: [
     BrowserModule,
