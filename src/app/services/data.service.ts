@@ -29,4 +29,8 @@ export class DataService {
       headers: this.conposeHeaders(),
     });
   }
+
+  create(data) {
+    return this.http.post(`${this.url}/accounts`, data);
+  }
 }
