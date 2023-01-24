@@ -1,6 +1,8 @@
 import { MaskDirective } from './directives/mask.directive';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,9 +39,11 @@ import { CheckoutPageComponent } from './pages/store/checkout-page/checkout-page
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    AppRoutingModule,
   ],
   providers: [DataService, AuthService],
   bootstrap: [AppComponent],
