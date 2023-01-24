@@ -15,6 +15,9 @@ import { ProductsPageComponent } from './pages/store/products-page/products-page
 import { ProductCardComponent } from './components/store/product-card/product-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { DataService } from './services/data.service';
+import { AuthService } from './services/auth.service';
+import { CheckoutPageComponent } from './pages/store/checkout-page/checkout-page.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     ProductCardComponent,
     LoadingComponent,
     MaskDirective,
+    CheckoutPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [DataService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
