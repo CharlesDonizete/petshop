@@ -1,3 +1,4 @@
+import { Security } from 'src/app/utils/security.util';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
@@ -9,6 +10,12 @@ export class DataService {
   public url = 'http://localhost:3000/v1';
 
   constructor(private http: HttpClient) {}
+
+  public composeHeaders() {
+    const token = Security.getToken();
+    const headers = new HttpHeaders().set('Authorization', `bearer ${token}`);
+    return headers;
+  }
 
   public conposeHeaders() {
     const token = localStorage.getItem('petshop.token');
@@ -36,5 +43,17 @@ export class DataService {
 
   resetPassword(data) {
     return this.http.post(`${this.url}/accounts/reset-password`, data);
+  }
+
+  getProfile() {
+    return this.http.get(`${this.url}/accounts`, {
+      headers: this.composeHeaders(),
+    });
+  }
+
+  updateProfile(data) {
+    return this.http.put(`${this.url}/accounts`, data, {
+      headers: this.conposeHeaders(),
+    });
   }
 }
