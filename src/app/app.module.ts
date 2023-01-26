@@ -6,7 +6,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/store/shared/navbar/navbar.component';
 import { LoginPageComponent } from './pages/account/login-page/login-page.component';
 import { PetsPageComponent } from './pages/account/pets-page/pets-page.component';
 import { ResetPasswordPageComponent } from './pages/account/reset-password-page/reset-password-page.component';
@@ -21,6 +20,7 @@ import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
 import { CheckoutPageComponent } from './pages/store/checkout-page/checkout-page.component';
 import { ProfilePageComponent } from './pages/account/profile-page/profile-page.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [

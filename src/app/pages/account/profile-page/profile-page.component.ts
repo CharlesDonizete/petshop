@@ -57,4 +57,18 @@ export class ProfilePageComponent implements OnInit {
       }
     );
   }
+
+  submit() {
+    this.busy = true;
+    this.service.updateProfile(this.form.value).subscribe(
+      (data: any) => {
+        this.busy = false;
+        this.toastr.success(data.message, 'Atualização Completa');
+      },
+      (err) => {
+        console.log(err);
+        this.busy = false;
+      }
+    );
+  }
 }
