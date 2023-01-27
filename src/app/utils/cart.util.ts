@@ -14,7 +14,7 @@ export class CartUtil {
     product: string,
     quantity: number,
     price: number,
-    image: string
+    image: string[]
   ) {
     let cart = this.get();
     const item = new CartItem(id, product, quantity, price, image);
