@@ -19,7 +19,7 @@ export class ProductCardComponent implements OnInit {
       this.product.title,
       1,
       this.product.price,
-      this.product.images
+      this.product.images[0]
     );
 
     this.toastr.success(
