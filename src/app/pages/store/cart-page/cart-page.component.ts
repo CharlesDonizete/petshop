@@ -1,3 +1,5 @@
+import { CartUtil } from './../../../utils/cart.util';
+import { Cart } from './../../../models/cart.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,7 +7,25 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './cart-page.component.html',
 })
 export class CartPageComponent implements OnInit {
+  public cart: Cart = new Cart();
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadCart();
+  }
+
+  public loadCart() {
+    this.cart = CartUtil.get();
+  }
+
+  public remove(item) {
+    let index = this.cart.items.indexOf(item);
+    this.cart.items.splice(index, 1);
+    CartUtil.update(this.cart);
+  }
+
+  public clear() {
+    CartUtil.clear();
+    this.loadCart();
+  }
 }
